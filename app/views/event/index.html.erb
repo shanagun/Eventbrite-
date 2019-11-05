@@ -1,2 +1,23 @@
-<h1>Event#index</h1>
-<p>Find me in app/views/event/index.html.erb</p>
+<title>The gossip project</title>
+
+<center>
+  <div class="jumbotron" style="background-image :url(https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80); background-size: 100%;">
+    <h1 class="display-4" style="color: white">Bienvenue !</h1>
+    <hr class="my-4">
+    <h5 style="color: white">THIS IS A ONCE IN A LIFETIME EVENT</h5>
+    <% link_to "Créer un évènement", :class => "btn btn-sm btn-outline-info" %>
+  </div>
+
+<center>
+<div class="card-columns">
+<% Event.all.each do |event| %>
+ <div class="card text-white bg-dark mb-3" style="max-width: 23rem;">
+  <div class="card-header bg-secondary"><%=event.title%></div>
+    <div class="card-block">
+      <p class="card-text">📍 : <%= event.location %></p>
+      <p class="card-text">📅 : <%= event.start_date %></p>
+      <p class="card-text">🖋 : <%= event.description %></p>
+    </div>
+  </div>
+  <% end %>
+  </center>

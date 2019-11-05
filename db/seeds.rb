@@ -26,7 +26,7 @@ Event.create!(
   admin: User.all.sample, 
   location: Faker::Address.full_address, 
   price: rand(1..10)*5, 
-  duration: rand(1..10)*4, 
+  duration: rand(1..10)*5, 
   start_date: Faker::Date.forward(days: 100)
   )
 end
