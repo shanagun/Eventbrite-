@@ -1,24 +1,27 @@
-# README
+# PROJET THP Semaine 6 jour 2 : The Gossip Project : Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objet du projet
+Développer un site avec rails 
 
-Things you may want to cover:
+### Pour lancer l'application 
+dans le dossier par défaut, exécuter :
+$ bundle install
 
-* Ruby version
+ensuite : 
 
-* System dependencies
+$ rails db:create
 
-* Configuration
+ensuite : 
 
-* Database creation
+$ rails db:migrate
 
-* Database initialization
+ensuite :
 
-* How to run the test suite
+$ rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
+et pour finir :
 
-* Deployment instructions
+$ rails server
 
-* ...
+## HEROKU
+http://rnvr-eventbrite.herokuapp.com

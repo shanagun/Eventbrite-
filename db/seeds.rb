@@ -13,7 +13,7 @@ User.create!(
   last_name: Faker::Name.last_name, 
   description: Faker::Quote.famous_last_words, 
   email: "henri#{f+user_count}@yopmail.com", 
-  encrypted_password:"Helloworld"
+  password:'Helloworld'
   )
 end
 puts "10 utilisateurs crees"
