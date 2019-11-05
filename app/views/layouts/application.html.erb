@@ -41,7 +41,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="/users/edit">Modifier</a>
-              # <a class="dropdown-item" href="/users/sign_out" data-method="delete"> Se déconnecter</a> methode alternative SE DECONNECTER
+              <% # <a class="dropdown-item" href="/users/sign_out" data-method="delete"> Se déconnecter</a> methode alternative SE DECONNECTER %>
               <a class="dropdown-item" <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %> </a>
             </div>
           </li>
