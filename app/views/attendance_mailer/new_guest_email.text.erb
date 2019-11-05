@@ -1,0 +1,8 @@
+Hello  <%= @admin.first_name %> !
+==========================================================
+
+Vous avez un nouvel invité pour l'évènement  <%= @attendance.event.title %> qui se deroulera le <%= @attendance.event.start_date.strftime("%d/%m/%Y") %>.
+
+Votre nouvel invité est <%= @attendance.user.first_name %>.
+
+A bientôt ! 
