@@ -1,0 +1,15 @@
+<br/>
+
+<center>
+ <div class="card border-secondary mb-6" style="max-width: 50rem;">
+  <div class="card-header">---- Coordonnées de <%= @user.first_name %> ----</div>
+    <div class="card-block">
+      <p class="card-text">Prénom : <%= @user.first_name %></p>
+      <p class="card-text">Nom de Famille : <%= @user.last_name %></p>
+      <p class="card-text">Email : <%= @user.email %></p>
+      <% #link_to "Modifier", edit_user_path(current_user.id), class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</center>
+
+</body>

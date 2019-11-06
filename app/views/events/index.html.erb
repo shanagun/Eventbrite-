@@ -17,6 +17,7 @@
       <p class="card-text">📍 : <%= event.location %></p>
       <p class="card-text">📅 : <%= event.start_date %></p>
       <p class="card-text">🖋 : <%= event.description %></p>
+      <p class="card-text">Lien vers cet évènement : <%= link_to event.title, event_path(:id => event.id) %></p>
     </div>
   </div>
   <% end %>
