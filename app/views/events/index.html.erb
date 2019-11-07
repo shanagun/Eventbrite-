@@ -1,24 +1,29 @@
 <title>The gossip project</title>
 
 <center>
-  <div class="jumbotron" style="background-image :url(https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80); background-size: 100%;">
-    <h1 class="display-4" style="color: white">Bienvenue !</h1>
-    <hr class="my-4">
-    <h5 style="color: white">THIS IS A ONCE IN A LIFETIME EVENT</h5>
-    <% link_to "Créer un évènement", :class => "btn btn-sm btn-outline-info" %>
+  <div class="jumbotron" style="background-image :url(https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);   background-attachment:fixed; background-size: 100%;">
+    <div class="container">
+      <h1 class="display-4" style="color: white">Bienvenue !</h1>
+      <hr class="my-5">
+      <h5 style="color: white">THIS IS A ONCE IN A LIFETIME EVENT</h5>
+      <% link_to "Créer un évènement", :class => "btn btn-sm btn-outline-info" %>
   </div>
+    </div>
 
-<center>
-<div class="card-columns">
-<% Event.all.each do |event| %>
- <div class="card text-white bg-dark mb-3" style="max-width: 23rem;">
-  <div class="card-header bg-secondary"><%=event.title%></div>
-    <div class="card-block">
-      <p class="card-text">📍 : <%= event.location %></p>
-      <p class="card-text">📅 : <%= event.start_date %></p>
-      <p class="card-text">🖋 : <%= event.description %></p>
-      <p class="card-text">Lien vers cet évènement : <%= link_to event.title, event_path(:id => event.id) %></p>
+    <div class="container"> 
+    <div class="row"> 
+      <h4 class="font-weight-bold">Tous les évènements</h4>
+    </div>
+    <div class="row justify-content-between">
+      <% @events.each do |event| %>
+      <div class="card col-12 mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
+          <p class="card-text"><%= event.price %> €</p>
+          <%= link_to "Plus d'infos",  event_path(event.id), class:"btn-primary btn-sm" %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
-  </center>

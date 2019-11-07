@@ -7,6 +7,12 @@
       <p class="card-text">Titre : <%= @event.title %></p>
       <p class="card-text">Description : <%= @event.description %></p>
       <p class="card-text">Date : <%= @event.start_date %></p>
+      <% if @attendees.include?(current_user) %>
+      <%=link_to "Se désinscrire", event_attendance_path(event_id: @event.id), :method => :DELETE, class: "btn btn-sm btn-outline-secondary btn-success" %>
+      <% else %>
+      <%=link_to "S'incrire à l'évènement", event_attendances_path(@event), :method => :POST, class: "btn btn-sm btn-outline-secondary btn-success" %>
+      <% end %>
+      <%= link_to "Supprimer", event_path, :class => "btn btn-sm btn-outline-secondary btn-danger", :data => {:confirm => "Êtes-vous sur?(e)"}, :method => :DELETE %>
       </div>
   </div>
 </center>

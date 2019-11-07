@@ -5,24 +5,10 @@ class Event < ApplicationRecord
 
   # validation des attributs
   validates :start_date, presence: true
-  validate :start
-  validates :duration, presence: true
-  validate :duration
-  validates :title, presence: true, length: {in: 5..140}
-  validates :description, presence: true, length: {in: 20..1000}
-  validates :price, presence: true, numericality: {greater_than: 1, less_than: 1000}
+  validates :duration, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
+  validates :title, presence: true, length: {minimum: 5, maximum: 140}
+  validates :description, presence: true, length: {minimum: 20, maximum: 1000}
+  validates :price, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 1000}
   validates :location, presence: true
-
-  def start
-    unless start_date > Time.zone.today
-      start_date.errors[:time] << 'event cannot be in the past'
-    end
-  end
-
-  def multiple
-    if (self.duration % 5) != 0
-      self.errors[:base] << 'duration must be a multiple of 5'
-    end
-  end
-
+  
 end
