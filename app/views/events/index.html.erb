@@ -20,7 +20,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= event.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= event.location %></h6>
-          <p class="card-text"><%= event.price %> €</p>
+          <p class="card-text"><%= event.price.to_f/100 %> €</p>
           <%= link_to "Plus d'infos",  event_path(event.id), class:"btn-primary btn-sm" %>
         </div>
       </div>

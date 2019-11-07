@@ -20,10 +20,29 @@ class AttendancesController < ApplicationController
     if already_participate?
       flash[:danger] = "Il n'est pas possible de s'inscrire plusieurs fois a un evenement"
       redirect_to event_path(@event)
-    else
-      @event.attendances.create(user_id: current_user.id)
-      redirect_to event_path(@event), flash: {success: 'Super, vous etes insrit a un nouvel evenement !'}
     end
+
+    # Amount in cents
+    @amount = @event.price
+
+    customer = Stripe::Customer.create({
+      email: params[:stripeEmail],
+      source: params[:stripeToken],
+    })
+
+    charge = Stripe::Charge.create({
+      customer: customer.id,
+      amount: @amount,
+      description: 'Rails Stripe customer',
+      currency: 'eur',
+    })
+
+    @event.attendances.create(user_id: current_user.id)
+    redirect_to event_path(@event), flash: {success: 'Super, vous etes insrit a un nouvel evenement !'}
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to event_path(@event)
   end
 
   def destroy
